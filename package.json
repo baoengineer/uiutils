@@ -17,6 +17,8 @@
     "@remix-run/dev": "^1.7.2",
     "@remix-run/eslint-config": "^1.7.2",
     "@remix-run/serve": "^1.7.2",
+    "@semantic-release/changelog": "^6.0.1",
+    "@semantic-release/git": "^10.0.1",
     "@types/react": "^18.0.15",
     "@types/react-dom": "^18.0.6",
     "eslint": "^8.23.1",
@@ -24,5 +26,28 @@
   },
   "engines": {
     "node": ">=14"
+  },
+  "plugins": [
+    "@semantic-release/commit-analyzer",
+    "@semantic-release/release-notes-generator",
+    "@semantic-release/changelog",
+    "@semantic-release/github",
+    "@semantic-release/npm",
+    "@semantic-release/git"
+  ],
+  "release": {
+    "prepare": [
+      "@semantic-release/changelog",
+      "@semantic-release/npm",
+      {
+        "path": "@semantic-release/git",
+        "assets": [
+          "package.json",
+          "package-lock.json",
+          "CHANGELOG.md"
+        ],
+        "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
+      }
+    ]
   }
 }
