@@ -9,7 +9,7 @@ const Navbar = () => {
           uiutils
         </Link>
       </div>
-      <div className="flex-none">
+      <div className="flex-none block lg:hidden">
         <label
           htmlFor="drawer"
           className="drawer-button btn btn-square btn-ghost"

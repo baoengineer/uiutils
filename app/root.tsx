@@ -18,23 +18,19 @@ export const meta: MetaFunction = () => ({
 
 export default function App() {
   return (
-    <html lang="en" data-theme="black">
+    <html lang="en" data-theme="lofi">
       <head>
         <Meta />
         <Links />
       </head>
-      <body>
+      <body className="h-screen w-screen overflow-hidden font-mono bg-secondary">
         <header>
           <Navbar />
         </header>
-        <Drawer
-          content={
-            <main>
-              <Outlet />
-              <Scripts />
-            </main>
-          }
-        />
+        <main>
+          <Drawer content={<Outlet />} />
+        </main>
+        <Scripts />
         <ScrollRestoration />
         <LiveReload />
       </body>
