@@ -8,6 +8,7 @@ import {
   ScrollRestoration,
 } from "@remix-run/react";
 import stylesheet from "public/styles/app.css";
+import { Drawer, Navbar } from "~/components";
 
 export const meta: MetaFunction = () => ({
   charset: "utf-8",
@@ -17,15 +18,24 @@ export const meta: MetaFunction = () => ({
 
 export default function App() {
   return (
-    <html lang="en">
+    <html lang="en" data-theme="black">
       <head>
         <Meta />
         <Links />
       </head>
       <body>
-        <Outlet />
+        <header>
+          <Navbar />
+        </header>
+        <Drawer
+          content={
+            <main>
+              <Outlet />
+              <Scripts />
+            </main>
+          }
+        />
         <ScrollRestoration />
-        <Scripts />
         <LiveReload />
       </body>
     </html>
