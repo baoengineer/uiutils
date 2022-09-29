@@ -14,3 +14,5 @@ api/index.js.map
 
 api/_assets/*.css
 app/styles/*.css
+!/api/
+!/public/styles/

@@ -1,10 +1,25 @@
 import type { ReactNode } from "react";
-import React, { useState } from "react";
-import { Link } from "@remix-run/react";
+import React, { useEffect, useState } from "react";
+import { Link, NavLink, useLocation } from "@remix-run/react";
 
 interface Props {
   content?: ReactNode;
 }
+
+const MENUS = {
+  "svg-to-css": {
+    path: "/svg-to-css",
+    label: "svg to css",
+    badge: "",
+    disabled: false,
+  },
+  "svg-to-react": {
+    path: "/svg-to-react",
+    label: "svg to react",
+    badge: "coming soon",
+    disabled: true,
+  },
+};
 
 const Drawer = ({ content }: Props) => {
   const [opened, setOpened] = useState(false);
@@ -19,8 +34,14 @@ const Drawer = ({ content }: Props) => {
     setOpened(!opened);
   };
 
+  let location = useLocation();
+
+  useEffect(() => {
+    hideMenu();
+  }, [location]);
+
   return (
-    <div className="drawer drawer-end">
+    <div className="drawer drawer-end" style={{ height: "calc(100vh - 64px)" }}>
       <input
         id="drawer"
         checked={opened}
@@ -28,79 +49,42 @@ const Drawer = ({ content }: Props) => {
         onChange={toggleMenu}
         className="drawer-toggle"
       />
-      <div className="drawer-content">{content}</div>
-      <div className="drawer-side">
+      <div className="drawer-content overflow-y-hidden lg:overflow-auto">
+        {content}
+      </div>
+      <div
+        className="drawer-side lg:overflow-hidden"
+        onMouseEnter={showMenu}
+        onMouseLeave={hideMenu}
+      >
         <label className="drawer-overlay" onClick={hideMenu} />
-        <ul
-          className="menu p-4 overflow-y-auto w-90 bg-base-100 text-base-content flex-nowrap lg:h-2/3 lg:rounded-md lg:mt-32 lg:mr-8"
-          onMouseEnter={showMenu}
-        >
-          <li>
-            <Link to="/svg-to-css">number base converter</Link>
-          </li>
-          <li>
-            <Link to="/svg-to-css">unix time converter</Link>
-          </li>
-          <li>
-            <Link to="/svg-to-css">color converter</Link>
-          </li>
-          <li>
-            <Link to="/svg-to-css">json format/validate</Link>
-          </li>
-          <li>
-            <Link to="/svg-to-css">base64 string encode/decode</Link>
-          </li>
-          <li>
-            <Link to="/svg-to-css">base64 image encode/decode</Link>
-          </li>
-          <li>
-            <Link to="/svg-to-css">url encode/decode</Link>
-          </li>
-          <li>
-            <Link to="/svg-to-css">url parser</Link>
-          </li>
-          <li>
-            <Link to="/svg-to-css">html preview</Link>
-          </li>
-          <li>
-            <Link to="/svg-to-css">svg to react</Link>
-          </li>
-          <li>
-            <Link to="/svg-to-css">svg to css</Link>
-          </li>
-          <li>
-            <Link to="/svg-to-css">pug to html</Link>
-          </li>
-          <li>
-            <Link to="/svg-to-css">html to pug</Link>
-          </li>
-          <li>
-            <Link to="/svg-to-css">html to jsx</Link>
-          </li>
-          <li>
-            <Link to="/svg-to-css">json to csv</Link>
-          </li>
-          <li>
-            <Link to="/svg-to-css">csv to json</Link>
-          </li>
-          <li>
-            <Link to="/svg-to-css">backslash escape/unescape</Link>
-          </li>
-          <li>
-            <Link to="/svg-to-css">string case converter</Link>
-          </li>
-          <li>
-            <Link to="/svg-to-css">regexp tester</Link>
-          </li>
-          <li>
-            <Link to="/svg-to-css">text diff</Link>
-          </li>
-          <li>
-            <Link to="/svg-to-css">lorem ipsum generator</Link>
-          </li>
-          <li>
-            <Link to="/svg-to-css">random string generator</Link>
-          </li>
+        <ul className="menu p-4 overflow-y-auto bg-base-100 text-base-content flex-nowrap lg:h-2/3 lg:rounded-md lg:mt-32 lg:mr-8">
+          {Object.values(MENUS).map((item) => (
+            <li key={item.path} className="my-1">
+              <NavLink
+                to={item.path}
+                className={({ isActive }) =>
+                  `${isActive ? "active" : "inactive"} ${
+                    item.disabled
+                      ? "pointer-events-none"
+                      : "pointer-events-auto"
+                  } px-16`
+                }
+                onChange={hideMenu}
+              >
+                <div
+                  className={
+                    item.badge
+                      ? "tooltip tooltip-bottom tooltip-open tooltip-secondary"
+                      : ""
+                  }
+                  data-tip={item.badge}
+                >
+                  {item.label}
+                </div>
+              </NavLink>
+            </li>
+          ))}
         </ul>
       </div>
     </div>

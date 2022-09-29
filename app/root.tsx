@@ -12,7 +12,7 @@ import { Drawer, Navbar } from "~/components";
 
 export const meta: MetaFunction = () => ({
   charset: "utf-8",
-  title: "New Remix App",
+  title: "uiutil - an indie ui development toolkit.",
   viewport: "width=device-width,initial-scale=1",
 });
 
@@ -23,11 +23,11 @@ export default function App() {
         <Meta />
         <Links />
       </head>
-      <body className="h-screen w-screen overflow-hidden font-mono bg-secondary">
+      <body className="flex flex-col lg:h-screen lg:w-screen overflow-hidden font-mono bg-secondary">
         <header>
           <Navbar />
         </header>
-        <main>
+        <main className="flex-1">
           <Drawer content={<Outlet />} />
         </main>
         <Scripts />
