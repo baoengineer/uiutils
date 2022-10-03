@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Index() {
   return (
-    <section className="hero min-h-screen">
+    <section className="hero h-full">
       <div className="hero-overlay bg-opacity-60"></div>
       <div className="hero-content text-center text-neutral-content">
         <div>

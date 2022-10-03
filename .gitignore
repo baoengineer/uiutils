@@ -4,15 +4,8 @@ node_modules
 .env
 .vercel
 .output
+.idea
 
-build/
+api
 public/build
 
-
-api/index.js
-api/index.js.map
-
-api/_assets/*.css
-app/styles/*.css
-!/api/
-!/public/styles/
