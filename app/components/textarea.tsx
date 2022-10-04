@@ -8,22 +8,29 @@ interface Props {
   onPaste?: (e: React.ClipboardEvent<HTMLTextAreaElement>) => void;
 }
 
-const Textarea = ({
-  className,
-  placeholder = "Type here...",
-  value,
-  onChange,
-  onPaste,
-}: Props) => {
-  return (
-    <textarea
-      className={`textarea textarea-primary resize-none w-full ${className}`}
-      placeholder={placeholder}
-      value={value}
-      onChange={onChange}
-      onPaste={onPaste}
-    />
-  );
-};
+const Textarea = React.forwardRef<HTMLTextAreaElement, Props>(
+  (
+    {
+      className,
+      placeholder = "Type here...",
+      value,
+      onChange,
+      onPaste,
+    }: Props,
+    ref
+  ) => {
+    return (
+      <textarea
+        ref={ref}
+        className={`textarea textarea-primary resize-none w-full ${className}`}
+        placeholder={placeholder}
+        value={value}
+        onChange={onChange}
+        onPaste={onPaste}
+      />
+    );
+  }
+);
 
+Textarea.displayName = "Textarea";
 export default Textarea;

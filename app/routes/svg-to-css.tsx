@@ -4,6 +4,10 @@ import { CSStoSVG, SVGtoCSS } from "~/utils";
 
 export default function Index() {
   const previewElRef = useRef() as React.MutableRefObject<HTMLDivElement>;
+  const svgTextareaElRef =
+    useRef() as React.MutableRefObject<HTMLTextAreaElement>;
+  const cssTextareaElRef =
+    useRef() as React.MutableRefObject<HTMLTextAreaElement>;
   const [svg, setSVG] = useState("");
   const [css, setCSS] = useState("");
   const [svgOptions, setSVGOptions] = useState({
@@ -12,8 +16,8 @@ export default function Index() {
   const [cssOptions, setCSSOptions] = useState({
     readyCSS: true,
     preview: false,
-    doubleQuote: false,
   });
+  const [copied, setCopied] = useState({ svg: false, css: false });
 
   const handleSVGChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const { value } = e.target as HTMLTextAreaElement;
@@ -74,12 +78,35 @@ export default function Index() {
     setCSS(result);
   };
 
+  const copy = (type: string) => (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    switch (type) {
+      case "svg":
+        const svgTextareaEl = svgTextareaElRef.current;
+        svgTextareaEl?.select();
+        setCopied({ svg: true, css: false });
+        break;
+      case "css":
+        const cssTextareaEl = cssTextareaElRef.current;
+        cssTextareaEl?.select();
+        setCopied({ svg: false, css: true });
+        break;
+      default:
+        break;
+    }
+    document.execCommand("copy");
+  };
+
   useEffect(() => {
     const previewEl = previewElRef.current;
     if (previewEl && cssOptions.preview) {
       previewEl.setAttribute("style", css);
     }
   }, [css, cssOptions.preview]);
+
+  useEffect(() => {
+    setCopied({ svg: false, css: false });
+  }, [css, svg, cssOptions.readyCSS]);
 
   return (
     <section className="flex flex-col p-6 lg:p-20 lg:h-full">
@@ -97,13 +124,13 @@ export default function Index() {
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
-              stroke-width="1.5"
+              strokeWidth="1.5"
               stroke="currentColor"
               className="w-6 h-6"
             >
               <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeLinecap="round"
+                strokeLinejoin="round"
                 d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9 5.25h.008v.008H12v-.008z"
               />
             </svg>
@@ -161,13 +188,24 @@ export default function Index() {
                   </div>
                 </div>
               ) : (
-                <Textarea
-                  className="mt-4 h-80 lg:flex-1"
-                  placeholder="enter your code..."
-                  value={svg}
-                  onChange={handleSVGChange}
-                  onPaste={handleSVGPaste}
-                />
+                <div className="indicator w-full">
+                  {svg && (
+                    <button
+                      className="indicator-item indicator-bottom btn btn-ghost btn-xs transform-none right-4 bottom-4"
+                      onClick={copy("svg")}
+                    >
+                      {copied.svg ? "copied" : "copy"}
+                    </button>
+                  )}
+                  <Textarea
+                    ref={svgTextareaElRef}
+                    className="mt-4 h-80 lg:flex-1"
+                    placeholder="enter your code..."
+                    value={svg}
+                    onChange={handleSVGChange}
+                    onPaste={handleSVGPaste}
+                  />
+                </div>
               )}
             </div>
           </div>
@@ -211,13 +249,24 @@ export default function Index() {
                   </div>
                 </div>
               ) : (
-                <Textarea
-                  className="mt-4 h-80 lg:flex-1"
-                  placeholder="enter your code..."
-                  value={css}
-                  onChange={handleCSSChange}
-                  onPaste={handleCSSPaste}
-                />
+                <div className="indicator w-full">
+                  {css && (
+                    <button
+                      className="indicator-item indicator-bottom btn btn-ghost btn-xs transform-none right-4 bottom-4"
+                      onClick={copy("css")}
+                    >
+                      {copied.css ? "copied" : "copy"}
+                    </button>
+                  )}
+                  <Textarea
+                    ref={cssTextareaElRef}
+                    className="mt-4 h-80 lg:flex-1"
+                    placeholder="enter your code..."
+                    value={css}
+                    onChange={handleCSSChange}
+                    onPaste={handleCSSPaste}
+                  />
+                </div>
               )}
             </div>
           </div>
