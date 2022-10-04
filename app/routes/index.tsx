@@ -21,7 +21,7 @@ export default function Index() {
           </div>
         </div>
       </section>
-      <footer className="footer items-center p-4 bg-primary text-neutral-content">
+      <footer className="footer grid-cols-2 items-center p-4 bg-primary text-neutral-content">
         <div className="items-center grid-flow-col">
           <svg
             width="36"
@@ -46,7 +46,7 @@ export default function Index() {
             </a>
           </p>
         </div>
-        <div className="grid-flow-col gap-4 md:place-self-center md:justify-self-end">
+        <div className="grid-flow-col gap-4 md:place-self-center justify-self-end">
           <a
             href="https://github.com/thebaodev/uiutils"
             target="_blank"
