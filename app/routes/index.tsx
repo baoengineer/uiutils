@@ -46,7 +46,7 @@ export default function Index() {
             </a>
           </p>
         </div>
-        <div className="grid-flow-col gap-4 md:place-self-center justify-self-end">
+        <div className="grid-flow-col gap-4 md:place-self-center justify-self-end md:justify-self-end">
           <a
             href="https://github.com/thebaodev/uiutils"
             target="_blank"

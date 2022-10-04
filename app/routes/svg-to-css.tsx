@@ -188,7 +188,7 @@ export default function Index() {
                   </div>
                 </div>
               ) : (
-                <div className="indicator w-full">
+                <div className="indicator w-full h-80 lg:flex-1">
                   {svg && (
                     <button
                       className="indicator-item indicator-bottom btn btn-ghost btn-xs transform-none right-4 bottom-4"
@@ -199,7 +199,7 @@ export default function Index() {
                   )}
                   <Textarea
                     ref={svgTextareaElRef}
-                    className="mt-4 h-80 lg:flex-1"
+                    className="mt-4"
                     placeholder="enter your code..."
                     value={svg}
                     onChange={handleSVGChange}
@@ -249,7 +249,7 @@ export default function Index() {
                   </div>
                 </div>
               ) : (
-                <div className="indicator w-full">
+                <div className="indicator w-full h-80 lg:flex-1">
                   {css && (
                     <button
                       className="indicator-item indicator-bottom btn btn-ghost btn-xs transform-none right-4 bottom-4"
@@ -260,7 +260,7 @@ export default function Index() {
                   )}
                   <Textarea
                     ref={cssTextareaElRef}
-                    className="mt-4 h-80 lg:flex-1"
+                    className="mt-4 "
                     placeholder="enter your code..."
                     value={css}
                     onChange={handleCSSChange}
