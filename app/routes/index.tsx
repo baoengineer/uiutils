@@ -47,7 +47,11 @@ export default function Index() {
           </p>
         </div>
         <div className="grid-flow-col gap-4 md:place-self-center md:justify-self-end">
-          <a href="https://thebao.dev" target="_blank" rel="noreferrer">
+          <a
+            href="https://github.com/thebaodev/uiutils"
+            target="_blank"
+            rel="noreferrer"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 30 30"
