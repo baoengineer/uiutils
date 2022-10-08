@@ -10,3 +10,4 @@ api
 public/build
 public/styles
 
+!/public/
