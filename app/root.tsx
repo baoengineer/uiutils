@@ -13,6 +13,8 @@ import { Drawer, Navbar } from "~/components";
 export const meta: MetaFunction = () => ({
   charset: "utf-8",
   title: "uiutil - an indie ui development toolkit.",
+  description:
+    "utilities and tools for UI development. all in one place. personalized.",
   viewport: "width=device-width,initial-scale=1",
 });
 
