@@ -4,7 +4,7 @@ export const loader = () => {
   const content = `
         <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-    <loc>https://www.thebao.dev</loc>
+    <loc>https://www.uiutils.com</loc>
     <lastmod>${new Date().toISOString()}</lastmod>
     <priority>1.0</priority>
     </url>
