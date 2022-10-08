@@ -1,8 +1,16 @@
 /** @type {import('tailwindcss').Config} */
+const defaultTheme = require("tailwindcss/defaultTheme");
+
 module.exports = {
   content: ["./app/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        logo: ["Turpis", ...defaultTheme.fontFamily.mono],
+        mono: ["SpaceMono", ...defaultTheme.fontFamily.mono],
+        sans: ["Turpis", ...defaultTheme.fontFamily.sans],
+      },
+    },
   },
   plugins: [require("daisyui")],
   daisyui: {

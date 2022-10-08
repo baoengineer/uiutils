@@ -32,7 +32,7 @@ html {
   -moz-tab-size: 4; /* 3 */
   -o-tab-size: 4;
      tab-size: 4; /* 3 */
-  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; /* 4 */
+  font-family: Turpis, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; /* 4 */
 }
 
 /*
@@ -107,7 +107,7 @@ code,
 kbd,
 samp,
 pre {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; /* 1 */
+  font-family: SpaceMono, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; /* 1 */
   font-size: 1em; /* 2 */
 }
 
@@ -1529,6 +1529,18 @@ html {
   --wa: 32 62% 84%;
   --er: 0 63% 72%;
 }
+  @font-face {
+    font-family: "SpaceMono";
+    font-weight: 400;
+    font-display: swap;
+    src: url(../../fonts/SpaceMono.ttf);
+  }
+  @font-face {
+    font-family: "Turpis";
+    font-weight: 400;
+    font-display: swap;
+    src: url(../../fonts/Turpis.ttf);
+  }
 
 *, ::before, ::after {
   --tw-border-spacing-x: 0;
@@ -3448,17 +3460,14 @@ body[dir="rtl"] .checkbox:checked,
 .pointer-events-auto {
   pointer-events: auto;
 }
+.top-px {
+  top: 1px;
+}
 .right-4 {
   right: 1rem;
 }
 .bottom-4 {
   bottom: 1rem;
-}
-.top-10 {
-  top: 2.5rem;
-}
-.top-px {
-  top: 1px;
 }
 .col-span-5 {
   grid-column: span 5 / span 5;
@@ -3473,8 +3482,11 @@ body[dir="rtl"] .checkbox:checked,
   margin-top: 0.25rem;
   margin-bottom: 0.25rem;
 }
-.mt-4 {
-  margin-top: 1rem;
+.mr-2 {
+  margin-right: 0.5rem;
+}
+.mt-16 {
+  margin-top: 4rem;
 }
 .mb-5 {
   margin-bottom: 1.25rem;
@@ -3482,11 +3494,8 @@ body[dir="rtl"] .checkbox:checked,
 .ml-2 {
   margin-left: 0.5rem;
 }
-.mr-2 {
-  margin-right: 0.5rem;
-}
-.mt-16 {
-  margin-top: 4rem;
+.mt-4 {
+  margin-top: 1rem;
 }
 .block {
   display: block;
@@ -3506,35 +3515,32 @@ body[dir="rtl"] .checkbox:checked,
 .hidden {
   display: none;
 }
-.h-5 {
-  height: 1.25rem;
-}
-.h-2 {
-  height: 0.5rem;
-}
-.h-full {
-  height: 100%;
-}
 .h-6 {
   height: 1.5rem;
-}
-.h-80 {
-  height: 20rem;
 }
 .h-\[70vh\] {
   height: 70vh;
 }
-.max-h-screen {
-  max-height: 100vh;
+.h-5 {
+  height: 1.25rem;
+}
+.h-full {
+  height: 100%;
+}
+.h-80 {
+  height: 20rem;
 }
 .max-h-96 {
   max-height: 24rem;
 }
-.w-5 {
-  width: 1.25rem;
+.max-h-screen {
+  max-height: 100vh;
 }
-.w-52 {
-  width: 13rem;
+.w-6 {
+  width: 1.5rem;
+}
+.w-64 {
+  width: 16rem;
 }
 .w-full {
   width: 100%;
@@ -3542,11 +3548,8 @@ body[dir="rtl"] .checkbox:checked,
 .w-2 {
   width: 0.5rem;
 }
-.w-6 {
-  width: 1.5rem;
-}
-.w-64 {
-  width: 16rem;
+.w-5 {
+  width: 1.25rem;
 }
 .flex-1 {
   flex: 1 1;
@@ -3638,14 +3641,11 @@ body[dir="rtl"] .checkbox:checked,
 .overflow-y-hidden {
   overflow-y: hidden;
 }
-.rounded-lg {
-  border-radius: 0.5rem;
+.rounded-sm {
+  border-radius: 0.125rem;
 }
 .rounded {
   border-radius: 0.25rem;
-}
-.rounded-sm {
-  border-radius: 0.125rem;
 }
 .border {
   border-width: 1px;
@@ -3657,6 +3657,10 @@ body[dir="rtl"] .checkbox:checked,
 .bg-base-100 {
   --tw-bg-opacity: 1;
   background-color: hsl(var(--b1) / var(--tw-bg-opacity));
+}
+.bg-base-200 {
+  --tw-bg-opacity: 1;
+  background-color: hsl(var(--b2, var(--b1)) / var(--tw-bg-opacity));
 }
 .bg-primary {
   --tw-bg-opacity: 1;
@@ -3674,10 +3678,6 @@ body[dir="rtl"] .checkbox:checked,
   --tw-bg-opacity: 1;
   background-color: hsl(var(--b3, var(--b2)) / var(--tw-bg-opacity));
 }
-.bg-base-200 {
-  --tw-bg-opacity: 1;
-  background-color: hsl(var(--b2, var(--b1)) / var(--tw-bg-opacity));
-}
 .bg-opacity-60 {
   --tw-bg-opacity: 0.6;
 }
@@ -3692,9 +3692,6 @@ body[dir="rtl"] .checkbox:checked,
 }
 .p-4 {
   padding: 1rem;
-}
-.p-2 {
-  padding: 0.5rem;
 }
 .p-3 {
   padding: 0.75rem;
@@ -3729,22 +3726,11 @@ body[dir="rtl"] .checkbox:checked,
   padding-top: 1rem;
   padding-bottom: 1rem;
 }
-.py-2 {
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-}
-.px-1 {
-  padding-left: 0.25rem;
-  padding-right: 0.25rem;
-}
 .text-center {
   text-align: center;
 }
 .font-mono {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-}
-.font-sans {
-  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: SpaceMono, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 .text-xl {
   font-size: 1.25rem;
@@ -3779,26 +3765,8 @@ body[dir="rtl"] .checkbox:checked,
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
-.text-base-100\/40 {
-  color: hsl(var(--b1) / 0.4);
-}
-.text-base-100\/80 {
-  color: hsl(var(--b1) / 0.8);
-}
-.text-base-100 {
-  --tw-text-opacity: 1;
-  color: hsl(var(--b1) / var(--tw-text-opacity));
-}
 .opacity-60 {
   opacity: 0.6;
-}
-.opacity-80 {
-  opacity: 0.8;
-}
-.shadow {
-  --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
-  --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 .shadow-2xl {
   --tw-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
@@ -3895,16 +3863,6 @@ body[dir="rtl"] .checkbox:checked,
 
   .lg\:p-20 {
     padding: 5rem;
-  }
-
-  .lg\:px-2 {
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
-  }
-
-  .lg\:px-3 {
-    padding-left: 0.75rem;
-    padding-right: 0.75rem;
   }
 
   .lg\:px-4 {

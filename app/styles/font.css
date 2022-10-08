@@ -1,0 +1,14 @@
+@layer base {
+  @font-face {
+    font-family: "SpaceMono";
+    font-weight: 400;
+    font-display: swap;
+    src: url(../../fonts/SpaceMono.ttf);
+  }
+  @font-face {
+    font-family: "Turpis";
+    font-weight: 400;
+    font-display: swap;
+    src: url(../../fonts/Turpis.ttf);
+  }
+}

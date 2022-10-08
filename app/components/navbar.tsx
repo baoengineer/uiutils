@@ -57,7 +57,7 @@ const Navbar = () => {
                     >
                       <div
                         data-theme={theme.id}
-                        className="bg-base-100 text-base-content w-full cursor-pointer font-sans"
+                        className="bg-base-100 text-base-content w-full cursor-pointer font-mono"
                       >
                         <div className="grid grid-cols-5 grid-rows-3">
                           <div className="col-span-5 row-span-3 row-start-1 flex gap-1 py-3 px-4">

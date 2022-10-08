@@ -13,7 +13,7 @@ export default function Index() {
             <p className="mb-5">
               utilities and tools for UI development.
               <br />
-              all in one place.
+              all in one place. personalized.
             </p>
             <label htmlFor="drawer" className="drawer-button btn btn-secondary">
               pick a tool
