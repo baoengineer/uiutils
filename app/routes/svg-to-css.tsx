@@ -112,7 +112,7 @@ export default function Index() {
     <section className="flex flex-col p-6 lg:p-20 lg:h-full">
       <div className="text-white">
         <h2 className="text-xl font-bold">svg to css </h2>
-        <div className="py-6 text-base-100/40">
+        <div className="py-6 ">
           converts SVG code into a Data URI
           <div
             className="tooltip tooltip-right ml-2"
@@ -137,25 +137,18 @@ export default function Index() {
           </div>
           <br />
           an encoded URL format that be used as a{" "}
-          <code className="inline-flex bg-primary p-1 text-base-100/80">
-            background-image
-          </code>
-          ,
-          <code className="inline-flex bg-primary p-1 text-base-100/80 ml-2">
-            border-image
-          </code>
+          <code className="inline-flex p-1">background-image</code>,
+          <code className="inline-flex p-1 ml-2">border-image</code>
           or
-          <code className="inline-flex bg-primary p-1 text-base-100/80 ml-2 mr-2">
-            mask-image
-          </code>
+          <code className="inline-flex p-1 ml-2 mr-2">mask-image</code>
           source.
           <p>use directly in css, no need of image files.</p>
         </div>
       </div>
       <div className="w-full lg:h-full">
         <div className="flex flex-col h-full lg:flex-row">
-          <div className="grid flex-grow flex-1 items-start card bg-base-100 rounded-box place-items-center">
-            <div className="card-body w-full h-full flex flex-col">
+          <div className="grid flex-grow flex-1 max-h-screen items-start card bg-base-100 rounded-box place-items-center">
+            <div className="card-body w-full h-full flex flex-col py-6">
               <h2 className="card-title">SVG</h2>
               <div className="grid grid-cols-2 gap-4">
                 <div className="form-control">
@@ -179,8 +172,8 @@ export default function Index() {
                 </div>
               </div>
               {svgOptions.preview ? (
-                <div className="mockup-window border bg-base-300 mt-4">
-                  <div className="flex justify-center p-4 bg-base-200  overflow-auto h-64">
+                <div className="mockup-window border bg-base-300 py-4 h-full">
+                  <div className="flex justify-center p-4 bg-base-200 h-full">
                     <div
                       className="h-full w-full"
                       dangerouslySetInnerHTML={{ __html: svg }}
@@ -210,8 +203,8 @@ export default function Index() {
             </div>
           </div>
           <div className="divider divider-horizontal">to</div>
-          <div className="grid flex-grow flex-1 items-start card bg-base-100 rounded-box place-items-center">
-            <div className="card-body w-full h-full flex flex-col">
+          <div className="grid flex-grow flex-1 max-h-screen items-start card bg-base-100 rounded-box place-items-center">
+            <div className="card-body w-full h-full flex flex-col py-6">
               <h2 className="card-title">CSS</h2>
               <div className="grid md:grid-cols-2 gap-4">
                 <div className="form-control">
@@ -240,11 +233,11 @@ export default function Index() {
                 </div>
               </div>
               {cssOptions.preview ? (
-                <div className="mockup-window border bg-base-300 mt-4">
-                  <div className="flex justify-center p-4 bg-base-200 overflow-auto h-64">
+                <div className="mockup-window border bg-base-300 py-4 h-full">
+                  <div className="flex justify-center p-4 bg-base-200 h-full max-h-94 overflow-auto">
                     <div
                       ref={previewElRef}
-                      className="h-full w-full bg-no-repeat bg-contain"
+                      className="h-full w-full bg-no-repeat"
                     />
                   </div>
                 </div>
