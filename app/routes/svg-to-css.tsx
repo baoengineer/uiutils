@@ -112,7 +112,7 @@ export default function Index() {
     <section className="flex flex-col p-6 lg:p-20 lg:h-full">
       <div className="text-white">
         <h2 className="text-xl font-bold">svg to css </h2>
-        <div className="py-6 text-base-100/40">
+        <div className="py-6 ">
           converts SVG code into a Data URI
           <div
             className="tooltip tooltip-right ml-2"
@@ -137,17 +137,10 @@ export default function Index() {
           </div>
           <br />
           an encoded URL format that be used as a{" "}
-          <code className="inline-flex bg-primary p-1 text-base-100/80">
-            background-image
-          </code>
-          ,
-          <code className="inline-flex bg-primary p-1 text-base-100/80 ml-2">
-            border-image
-          </code>
+          <code className="inline-flex p-1">background-image</code>,
+          <code className="inline-flex p-1 ml-2">border-image</code>
           or
-          <code className="inline-flex bg-primary p-1 text-base-100/80 ml-2 mr-2">
-            mask-image
-          </code>
+          <code className="inline-flex p-1 ml-2 mr-2">mask-image</code>
           source.
           <p>use directly in css, no need of image files.</p>
         </div>
