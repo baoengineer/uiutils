@@ -16,11 +16,11 @@ export const themes = [
     id: "bumblebee",
   },
   {
-    name: "✳️ Emerald",
+    name: "✳️ emerald",
     id: "emerald",
   },
   {
-    name: "🏢 Corporate",
+    name: "🏢 corporate",
     id: "corporate",
   },
   {
@@ -65,7 +65,7 @@ export const themes = [
     id: "fantasy",
   },
   {
-    name: "📝 Wireframe",
+    name: "📝 wireframe",
     id: "wireframe",
   },
   {
@@ -77,35 +77,35 @@ export const themes = [
     id: "dracula",
   },
   {
-    name: "🖨 CMYK",
+    name: "🖨 cmyk",
     id: "cmyk",
   },
   {
-    name: "🍁 Autumn",
+    name: "🍁 autumn",
     id: "autumn",
   },
   {
-    name: "💼 Business",
+    name: "💼 business",
     id: "business",
   },
   {
-    name: "💊 Acid",
+    name: "💊 acid",
     id: "acid",
   },
   {
-    name: "🍋 Lemonade",
+    name: "🍋 lemonade",
     id: "lemonade",
   },
   {
-    name: "🌙 Night",
+    name: "🌙 night",
     id: "night",
   },
   {
-    name: "☕️ Coffee",
+    name: "☕️ coffee",
     id: "coffee",
   },
   {
-    name: "❄️ Winter",
+    name: "❄️ winter",
     id: "winter",
   },
 ];
