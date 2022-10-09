@@ -19,8 +19,7 @@ export default function Index() {
   });
   const [copied, setCopied] = useState({ svg: false, css: false });
 
-  const handleSVGChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    const { value } = e.target as HTMLTextAreaElement;
+  const handleSVGChange = (value: string) => {
     setSVG(value);
     const result = SVGtoCSS(value, cssOptions.readyCSS);
     setCSS(result);
@@ -33,8 +32,7 @@ export default function Index() {
     setCSS(result);
   };
 
-  const handleCSSChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    const { value } = e.target as HTMLTextAreaElement;
+  const handleCSSChange = (value: string) => {
     setCSS(value);
     setSVG(CSStoSVG(value));
   };
@@ -193,10 +191,11 @@ export default function Index() {
                   <Textarea
                     ref={svgTextareaElRef}
                     className="mt-4"
-                    placeholder="enter your code..."
+                    placeholder="enter your code or drag a svg file here"
                     value={svg}
                     onChange={handleSVGChange}
                     onPaste={handleSVGPaste}
+                    isDraggable
                   />
                 </div>
               )}
@@ -254,7 +253,7 @@ export default function Index() {
                   <Textarea
                     ref={cssTextareaElRef}
                     className="mt-4 "
-                    placeholder="enter your code..."
+                    placeholder="enter your code"
                     value={css}
                     onChange={handleCSSChange}
                     onPaste={handleCSSPaste}
