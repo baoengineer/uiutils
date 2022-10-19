@@ -3,3 +3,7 @@
 @import "tailwindcss/utilities";
 
 @import './font.css';
+
+a {
+  cursor: pointer!important;
+}

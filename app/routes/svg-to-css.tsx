@@ -170,7 +170,7 @@ export default function Index() {
                 </div>
               </div>
               {svgOptions.preview ? (
-                <div className="mockup-window border bg-base-300 py-4 h-full">
+                <div className="mockup-window border bg-base-300 py-4 h-80 w-full flex-1 md:h-full min-h-48">
                   <div className="flex justify-center p-4 bg-base-200 h-full">
                     <div
                       className="h-full w-full"
@@ -232,11 +232,11 @@ export default function Index() {
                 </div>
               </div>
               {cssOptions.preview ? (
-                <div className="mockup-window border bg-base-300 py-4 h-full">
+                <div className="mockup-window border bg-base-300 py-4 h-80 md:h-full min-h-48">
                   <div className="flex justify-center p-4 bg-base-200 h-full max-h-94 overflow-auto">
                     <div
                       ref={previewElRef}
-                      className="h-full w-full bg-no-repeat"
+                      className="h-full w-full bg-no-repeat bg-auto"
                     />
                   </div>
                 </div>
