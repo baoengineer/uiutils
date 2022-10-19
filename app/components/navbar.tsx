@@ -20,10 +20,10 @@ const Navbar = () => {
           <div className="dropdown dropdown-end">
             <label
               tabIndex={0}
-              className="btn btn-ghost rounded-btn flex items-center px-2 lg:px-4"
+              className="btn btn-ghost rounded-btn flex items-center px-1 md:px-2 lg:px-4"
             >
               <span className="flex items-end">
-                <span className="lowercase mr-2 hidden lg:block">
+                <span className="lowercase md:mr-2">
                   theme
                 </span>
               </span>
