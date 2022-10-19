@@ -21,8 +21,8 @@ export default function Index() {
           </div>
         </div>
       </section>
-      <footer className="footer group grid-cols-2 items-center p-4 bg-primary text-neutral-content">
-        <div className="items-center grid-flow-col">
+      <footer className="footer group  md:grid-cols-2 items-center p-4 bg-primary text-neutral-content">
+        <div className="order-1 md:order-1 items-center grid-flow-col">
           <a
             className="flex items-center opacity-30 hover:opacity-60 transition"
             href="https://thebao.dev"
@@ -43,7 +43,7 @@ export default function Index() {
             <p className="ml-4">made with love by bao</p>
           </a>
         </div>
-        <div className="grid-flow-col opacity-30 hover:opacity-60 transition items-center gap-4 md:place-self-center justify-self-end md:justify-self-end">
+        <div className="order-0 md:order-1 grid-flow-col opacity-30 hover:opacity-60 transition items-center gap-4 md:place-self-center justify-self-end md:justify-self-end">
           <span>
             Built with{" "}
             <a

@@ -5,7 +5,7 @@
   "private": true,
   "sideEffects": false,
   "scripts": {
-    "clean": "rimraf build public/build",
+    "clean": "rimraf build public/build api",
     "dev:css": "postcss app/styles/app.css --dir public/styles -w",
     "build:css": "postcss app/styles/app.css --dir public/styles --env production",
     "dev": "concurrently \"npm run clean\" \"npm run dev:css\" \"remix dev\"",
